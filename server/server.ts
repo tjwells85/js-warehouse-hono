@@ -1,5 +1,8 @@
 import app from './app';
 import { ProcessEnv } from './env';
+import { init } from './lib/init';
+
+await init();
 
 const server = Bun.serve({
 	port: ProcessEnv.PORT,
