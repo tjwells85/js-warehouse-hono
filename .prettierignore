@@ -1,0 +1,15 @@
+# Lock files
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+bun.lock
+
+# Build output
+build/
+frontend/dist/
+
+# Node modules
+node_modules/
+
+# Generated files
+routeTree.gen.ts

@@ -1,0 +1,14 @@
+{
+	"name": "server",
+	"version": "1.0.0",
+	"main": "server.ts",
+	"scripts": {
+		"dev": "bun --watch server.ts",
+		"start": "bun server.ts"
+	},
+	"dependencies": {
+		"hono": "catalog:",
+		"@hono/zod-validator": "^0.6.0"
+	},
+	"devDependencies": {}
+}

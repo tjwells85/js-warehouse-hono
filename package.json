@@ -1,0 +1,43 @@
+{
+	"name": "hono-api",
+	"version": "1.0.0",
+	"private": true,
+	"workspaces": {
+		"packages": [
+			"server",
+			"frontend"
+		],
+		"catalog": {
+			"hono": "^4.3.7"
+		}
+	},
+	"scripts": {
+		"dev": "concurrently -n server,frontend -c green,cyan \"bun run dev:server\" \"bun run dev:frontend\"",
+		"dev:server": "bun run --filter=server --elide-lines=0 dev",
+		"dev:frontend": "bun run --filter=frontend --elide-lines=0 dev",
+		"build:frontend": "bun --bun run --filter=frontend build ",
+		"build:server": "bun --bun build.ts",
+		"build": "bun run build:frontend && bun run build:server",
+		"postbuild": "bunx rimraf build/client && bunx mkdirp build/client && bunx cp -r frontend/dist/* build/client/ && cp server/.env build/.env",
+		"start": "bun --bun --env-file=build/.env build/server.js",
+		"deploy": "bun install --frozen-lockfile",
+		"lint": "bun run lint --filter=server && bun run lint --filter=frontend",
+		"format": "bun run format --filter=frontend",
+		"test": "bun test",
+		"update:all": "bun update --latest && cd server && bun update --latest && cd ../frontend && bun update --latest"
+	},
+	"dependencies": {
+		"zod": "^4.0.10"
+	},
+	"devDependencies": {
+		"@eslint/compat": "^1.2.9",
+		"@eslint/js": "^9.27.0",
+		"bun-types": "^1.2.20",
+		"concurrently": "^9.2.0",
+		"eslint": "^9.27.0",
+		"eslint-config-prettier": "^10.1.5",
+		"globals": "^16.2.0",
+		"prettier": "^3.5.3",
+		"typescript-eslint": "^8.32.1"
+	}
+}

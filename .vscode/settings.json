@@ -1,0 +1,11 @@
+{
+  "eslint.workingDirectories": [
+    {
+      "mode": "auto"
+    },
+    "server",
+    "frontend"
+  ],
+  "editor.formatOnSave": true,
+  "prettier.requireConfig": true
+}

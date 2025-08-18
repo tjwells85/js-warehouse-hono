@@ -1,0 +1,8 @@
+[install]
+saveTextLockfile = true
+
+[run]
+bun = true
+
+[test]
+root = "tests"

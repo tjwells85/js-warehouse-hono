@@ -1,0 +1,23 @@
+# Node modules
+node_modules/
+
+# Bun lockfile (not needed for linting)
+bun.lock
+
+# Build output
+build/
+frontend/dist/
+
+# TypeScript output (if ever emitted)
+*.js
+*.d.ts
+
+# SQLite or local dev DBs
+*.sqlite
+
+# Generated files
+**/routeTree.gen.ts
+
+# IDE and system files
+.vscode/
+.DS_Store
