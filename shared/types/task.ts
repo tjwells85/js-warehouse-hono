@@ -40,3 +40,34 @@ export interface Task extends BaseDocument {
 	activeTime: number;
 	orderType: OrderType;
 }
+
+/**
+ * Zod schema for Task validation
+ * Used for both inserts and updates (.partial() for updates)
+ */
+export const TaskSchema = z.object({
+	orderId: z.string().nonempty('Order ID is required'),
+	generationId: z.number().int(),
+	invoiceId: z.string().nonempty('Invoice ID is required'),
+	branchId: z.string().nonempty('Branch ID is required'),
+	pickGroup: z.string().nonempty('Pick group is required'),
+	assignedUserId: z.string().nonempty('Assigned user ID is required'),
+	billTo: z.number().int(),
+	shipTo: z.number().int(),
+	shipToName: z.string().nonempty('Ship to name is required'),
+	pickCount: z.string().nonempty('Pick count is required'),
+	shipVia: z.string().nonempty('Ship via is required'),
+	isFromMultipleZones: z.boolean(),
+	taskState: TaskState,
+	taskWeight: z.number().int(),
+	pickAndPassBlink: z.boolean(),
+	pickPriority: z.string().nonempty('Pick priority is required'),
+	transferShippingBranch: z.string().optional(),
+	transferReceivingBranch: z.string().optional(),
+	totes: z.array(z.string()).default([]),
+	lastSeen: z.date().default(() => new Date()),
+	activeTime: z.number().int().default(0),
+	orderType: OrderType,
+});
+
+export type TaskSchema = z.infer<typeof TaskSchema>;

@@ -1,3 +1,4 @@
+import * as z from 'zod';
 import type { BaseDocument } from './_base';
 
 /**
@@ -21,3 +22,28 @@ export interface EclipseSession extends BaseDocument {
 	tokenType?: string;
 	isValid: boolean;
 }
+
+/**
+ * Zod schema for EclipseSession validation
+ * Used for both inserts and updates (.partial() for updates)
+ */
+export const EclipseSessionSchema = z.object({
+	sessionId: z.string().nonempty('Session ID is required'),
+	sessionToken: z.string().nonempty('Session token is required'),
+	refreshToken: z.string().nonempty('Refresh token is required'),
+	applicationKey: z.string().default(''),
+	developerKey: z.string().default(''),
+	clientDescription: z.string().default(''),
+	deviceId: z.string().default(''),
+	workstationId: z.string().default(''),
+	printerLocationId: z.string().default(''),
+	validPrinterLocationIds: z.array(z.string()).default([]),
+	alternateSessionId: z.string().default(''),
+	creationDateTime: z.date(),
+	lastUsedDateTime: z.date(),
+	expiresIn: z.number().int().positive().optional(),
+	tokenType: z.string().optional(),
+	isValid: z.boolean().default(true),
+});
+
+export type EclipseSessionSchema = z.infer<typeof EclipseSessionSchema>;
