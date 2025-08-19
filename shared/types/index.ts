@@ -1,4 +1,5 @@
 export * from './_base';
+export * from './auth';
 export * from './branch';
 export * from './eclipse';
 export * from './holiday';

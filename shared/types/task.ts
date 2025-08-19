@@ -14,6 +14,20 @@ export const OrderType = z.enum(['TransferOrder', 'PurchaseOrder', 'SaleOrder', 
 export type OrderType = z.infer<typeof OrderType>;
 
 /**
+ * Task filter type enumeration
+ */
+export const TaskFilterType = z.enum(['standard', 'willcall', 'transfers', 'shipouts', 'nonWillCall', 'deliveries']);
+export type TaskFilterType = z.infer<typeof TaskFilterType>;
+
+/**
+ * Task query schema for route validation
+ */
+export const TaskQuerySchema = z.object({
+	type: TaskFilterType.optional(),
+});
+export type TaskQuerySchema = z.infer<typeof TaskQuerySchema>;
+
+/**
  * Task interface - represents warehouse picking tasks
  */
 export interface Task extends BaseDocument {
