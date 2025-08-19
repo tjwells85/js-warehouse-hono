@@ -8,81 +8,350 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
-// Import Routes
+import { Route as rootRouteImport } from './routes/__root'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as IndexRouteImport } from './routes/index'
+import { Route as WhsIndexRouteImport } from './routes/whs/index'
+import { Route as AdminIndexRouteImport } from './routes/admin/index'
+import { Route as WhsBranchRouteImport } from './routes/whs/$branch'
+import { Route as AdminUsersIndexRouteImport } from './routes/admin/users/index'
+import { Route as AdminStatsIndexRouteImport } from './routes/admin/stats/index'
+import { Route as AdminShipviasIndexRouteImport } from './routes/admin/shipvias/index'
+import { Route as AdminResetIndexRouteImport } from './routes/admin/reset/index'
+import { Route as AdminLogsIndexRouteImport } from './routes/admin/logs/index'
+import { Route as AdminHolidaysIndexRouteImport } from './routes/admin/holidays/index'
+import { Route as AdminBranchesIndexRouteImport } from './routes/admin/branches/index'
+import { Route as AdminStatsBranchRouteImport } from './routes/admin/stats/$branch'
+import { Route as AdminShipviasIdRouteImport } from './routes/admin/shipvias/$id'
+import { Route as AdminBranchesIdRouteImport } from './routes/admin/branches/$id'
 
-import { Route as rootRoute } from './routes/__root'
-import { Route as IndexImport } from './routes/index'
-
-// Create/Update Routes
-
-const IndexRoute = IndexImport.update({
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WhsIndexRoute = WhsIndexRouteImport.update({
+  id: '/whs/',
+  path: '/whs/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/admin/',
+  path: '/admin/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WhsBranchRoute = WhsBranchRouteImport.update({
+  id: '/whs/$branch',
+  path: '/whs/$branch',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminUsersIndexRoute = AdminUsersIndexRouteImport.update({
+  id: '/admin/users/',
+  path: '/admin/users/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminStatsIndexRoute = AdminStatsIndexRouteImport.update({
+  id: '/admin/stats/',
+  path: '/admin/stats/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminShipviasIndexRoute = AdminShipviasIndexRouteImport.update({
+  id: '/admin/shipvias/',
+  path: '/admin/shipvias/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminResetIndexRoute = AdminResetIndexRouteImport.update({
+  id: '/admin/reset/',
+  path: '/admin/reset/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminLogsIndexRoute = AdminLogsIndexRouteImport.update({
+  id: '/admin/logs/',
+  path: '/admin/logs/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminHolidaysIndexRoute = AdminHolidaysIndexRouteImport.update({
+  id: '/admin/holidays/',
+  path: '/admin/holidays/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminBranchesIndexRoute = AdminBranchesIndexRouteImport.update({
+  id: '/admin/branches/',
+  path: '/admin/branches/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminStatsBranchRoute = AdminStatsBranchRouteImport.update({
+  id: '/admin/stats/$branch',
+  path: '/admin/stats/$branch',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminShipviasIdRoute = AdminShipviasIdRouteImport.update({
+  id: '/admin/shipvias/$id',
+  path: '/admin/shipvias/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminBranchesIdRoute = AdminBranchesIdRouteImport.update({
+  id: '/admin/branches/$id',
+  path: '/admin/branches/$id',
+  getParentRoute: () => rootRouteImport,
 } as any)
 
-// Populate the FileRoutesByPath interface
+export interface FileRoutesByFullPath {
+  '/': typeof IndexRoute
+  '/login': typeof LoginRoute
+  '/whs/$branch': typeof WhsBranchRoute
+  '/admin': typeof AdminIndexRoute
+  '/whs': typeof WhsIndexRoute
+  '/admin/branches/$id': typeof AdminBranchesIdRoute
+  '/admin/shipvias/$id': typeof AdminShipviasIdRoute
+  '/admin/stats/$branch': typeof AdminStatsBranchRoute
+  '/admin/branches': typeof AdminBranchesIndexRoute
+  '/admin/holidays': typeof AdminHolidaysIndexRoute
+  '/admin/logs': typeof AdminLogsIndexRoute
+  '/admin/reset': typeof AdminResetIndexRoute
+  '/admin/shipvias': typeof AdminShipviasIndexRoute
+  '/admin/stats': typeof AdminStatsIndexRoute
+  '/admin/users': typeof AdminUsersIndexRoute
+}
+export interface FileRoutesByTo {
+  '/': typeof IndexRoute
+  '/login': typeof LoginRoute
+  '/whs/$branch': typeof WhsBranchRoute
+  '/admin': typeof AdminIndexRoute
+  '/whs': typeof WhsIndexRoute
+  '/admin/branches/$id': typeof AdminBranchesIdRoute
+  '/admin/shipvias/$id': typeof AdminShipviasIdRoute
+  '/admin/stats/$branch': typeof AdminStatsBranchRoute
+  '/admin/branches': typeof AdminBranchesIndexRoute
+  '/admin/holidays': typeof AdminHolidaysIndexRoute
+  '/admin/logs': typeof AdminLogsIndexRoute
+  '/admin/reset': typeof AdminResetIndexRoute
+  '/admin/shipvias': typeof AdminShipviasIndexRoute
+  '/admin/stats': typeof AdminStatsIndexRoute
+  '/admin/users': typeof AdminUsersIndexRoute
+}
+export interface FileRoutesById {
+  __root__: typeof rootRouteImport
+  '/': typeof IndexRoute
+  '/login': typeof LoginRoute
+  '/whs/$branch': typeof WhsBranchRoute
+  '/admin/': typeof AdminIndexRoute
+  '/whs/': typeof WhsIndexRoute
+  '/admin/branches/$id': typeof AdminBranchesIdRoute
+  '/admin/shipvias/$id': typeof AdminShipviasIdRoute
+  '/admin/stats/$branch': typeof AdminStatsBranchRoute
+  '/admin/branches/': typeof AdminBranchesIndexRoute
+  '/admin/holidays/': typeof AdminHolidaysIndexRoute
+  '/admin/logs/': typeof AdminLogsIndexRoute
+  '/admin/reset/': typeof AdminResetIndexRoute
+  '/admin/shipvias/': typeof AdminShipviasIndexRoute
+  '/admin/stats/': typeof AdminStatsIndexRoute
+  '/admin/users/': typeof AdminUsersIndexRoute
+}
+export interface FileRouteTypes {
+  fileRoutesByFullPath: FileRoutesByFullPath
+  fullPaths:
+    | '/'
+    | '/login'
+    | '/whs/$branch'
+    | '/admin'
+    | '/whs'
+    | '/admin/branches/$id'
+    | '/admin/shipvias/$id'
+    | '/admin/stats/$branch'
+    | '/admin/branches'
+    | '/admin/holidays'
+    | '/admin/logs'
+    | '/admin/reset'
+    | '/admin/shipvias'
+    | '/admin/stats'
+    | '/admin/users'
+  fileRoutesByTo: FileRoutesByTo
+  to:
+    | '/'
+    | '/login'
+    | '/whs/$branch'
+    | '/admin'
+    | '/whs'
+    | '/admin/branches/$id'
+    | '/admin/shipvias/$id'
+    | '/admin/stats/$branch'
+    | '/admin/branches'
+    | '/admin/holidays'
+    | '/admin/logs'
+    | '/admin/reset'
+    | '/admin/shipvias'
+    | '/admin/stats'
+    | '/admin/users'
+  id:
+    | '__root__'
+    | '/'
+    | '/login'
+    | '/whs/$branch'
+    | '/admin/'
+    | '/whs/'
+    | '/admin/branches/$id'
+    | '/admin/shipvias/$id'
+    | '/admin/stats/$branch'
+    | '/admin/branches/'
+    | '/admin/holidays/'
+    | '/admin/logs/'
+    | '/admin/reset/'
+    | '/admin/shipvias/'
+    | '/admin/stats/'
+    | '/admin/users/'
+  fileRoutesById: FileRoutesById
+}
+export interface RootRouteChildren {
+  IndexRoute: typeof IndexRoute
+  LoginRoute: typeof LoginRoute
+  WhsBranchRoute: typeof WhsBranchRoute
+  AdminIndexRoute: typeof AdminIndexRoute
+  WhsIndexRoute: typeof WhsIndexRoute
+  AdminBranchesIdRoute: typeof AdminBranchesIdRoute
+  AdminShipviasIdRoute: typeof AdminShipviasIdRoute
+  AdminStatsBranchRoute: typeof AdminStatsBranchRoute
+  AdminBranchesIndexRoute: typeof AdminBranchesIndexRoute
+  AdminHolidaysIndexRoute: typeof AdminHolidaysIndexRoute
+  AdminLogsIndexRoute: typeof AdminLogsIndexRoute
+  AdminResetIndexRoute: typeof AdminResetIndexRoute
+  AdminShipviasIndexRoute: typeof AdminShipviasIndexRoute
+  AdminStatsIndexRoute: typeof AdminStatsIndexRoute
+  AdminUsersIndexRoute: typeof AdminUsersIndexRoute
+}
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexImport
-      parentRoute: typeof rootRoute
+      preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/whs/': {
+      id: '/whs/'
+      path: '/whs'
+      fullPath: '/whs'
+      preLoaderRoute: typeof WhsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/': {
+      id: '/admin/'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/whs/$branch': {
+      id: '/whs/$branch'
+      path: '/whs/$branch'
+      fullPath: '/whs/$branch'
+      preLoaderRoute: typeof WhsBranchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/users/': {
+      id: '/admin/users/'
+      path: '/admin/users'
+      fullPath: '/admin/users'
+      preLoaderRoute: typeof AdminUsersIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/stats/': {
+      id: '/admin/stats/'
+      path: '/admin/stats'
+      fullPath: '/admin/stats'
+      preLoaderRoute: typeof AdminStatsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/shipvias/': {
+      id: '/admin/shipvias/'
+      path: '/admin/shipvias'
+      fullPath: '/admin/shipvias'
+      preLoaderRoute: typeof AdminShipviasIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/reset/': {
+      id: '/admin/reset/'
+      path: '/admin/reset'
+      fullPath: '/admin/reset'
+      preLoaderRoute: typeof AdminResetIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/logs/': {
+      id: '/admin/logs/'
+      path: '/admin/logs'
+      fullPath: '/admin/logs'
+      preLoaderRoute: typeof AdminLogsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/holidays/': {
+      id: '/admin/holidays/'
+      path: '/admin/holidays'
+      fullPath: '/admin/holidays'
+      preLoaderRoute: typeof AdminHolidaysIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/branches/': {
+      id: '/admin/branches/'
+      path: '/admin/branches'
+      fullPath: '/admin/branches'
+      preLoaderRoute: typeof AdminBranchesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/stats/$branch': {
+      id: '/admin/stats/$branch'
+      path: '/admin/stats/$branch'
+      fullPath: '/admin/stats/$branch'
+      preLoaderRoute: typeof AdminStatsBranchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/shipvias/$id': {
+      id: '/admin/shipvias/$id'
+      path: '/admin/shipvias/$id'
+      fullPath: '/admin/shipvias/$id'
+      preLoaderRoute: typeof AdminShipviasIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/branches/$id': {
+      id: '/admin/branches/$id'
+      path: '/admin/branches/$id'
+      fullPath: '/admin/branches/$id'
+      preLoaderRoute: typeof AdminBranchesIdRouteImport
+      parentRoute: typeof rootRouteImport
     }
   }
-}
-
-// Create and export the route tree
-
-export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-}
-
-export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-}
-
-export interface FileRoutesById {
-  __root__: typeof rootRoute
-  '/': typeof IndexRoute
-}
-
-export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
-  fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
-  fileRoutesById: FileRoutesById
-}
-
-export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  LoginRoute: LoginRoute,
+  WhsBranchRoute: WhsBranchRoute,
+  AdminIndexRoute: AdminIndexRoute,
+  WhsIndexRoute: WhsIndexRoute,
+  AdminBranchesIdRoute: AdminBranchesIdRoute,
+  AdminShipviasIdRoute: AdminShipviasIdRoute,
+  AdminStatsBranchRoute: AdminStatsBranchRoute,
+  AdminBranchesIndexRoute: AdminBranchesIndexRoute,
+  AdminHolidaysIndexRoute: AdminHolidaysIndexRoute,
+  AdminLogsIndexRoute: AdminLogsIndexRoute,
+  AdminResetIndexRoute: AdminResetIndexRoute,
+  AdminShipviasIndexRoute: AdminShipviasIndexRoute,
+  AdminStatsIndexRoute: AdminStatsIndexRoute,
+  AdminUsersIndexRoute: AdminUsersIndexRoute,
 }
-
-export const routeTree = rootRoute
+export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-/* ROUTE_MANIFEST_START
-{
-  "routes": {
-    "__root__": {
-      "filePath": "__root.tsx",
-      "children": [
-        "/"
-      ]
-    },
-    "/": {
-      "filePath": "index.tsx"
-    }
-  }
-}
-ROUTE_MANIFEST_END */

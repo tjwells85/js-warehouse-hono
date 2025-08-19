@@ -1,0 +1,26 @@
+# Routes
+
+- /index.tsx
+- /admin
+  - /admin/index.tsx
+  - /admin/branches
+    - index.tsx
+    - $id.tsx
+  - /admin/holidays
+    - index.tsx
+  - /admin/logs
+    - index.tsx
+  - /admin/reset
+    - index.tsx
+  - /admin/shipvias
+    - index.tsx
+    - $id.tsx
+  - /admin/stats
+    - index.tsx
+    - $branch.tsx
+  - /admin/users
+    - index.tsx
+- /login.tsx
+- /whs
+  - index.tsx
+  - $branch.tsx
