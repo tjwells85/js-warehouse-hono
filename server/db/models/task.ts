@@ -24,10 +24,12 @@ const TaskMongoSchema = new Schema<Task>(
 		pickGroup: {
 			type: String,
 			required: true,
+			default: 'DEFAULT',
 		},
 		assignedUserId: {
 			type: String,
 			required: true,
+			default: 'UNASSIGNED',
 		},
 		billTo: {
 			type: Number,

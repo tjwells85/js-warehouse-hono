@@ -27,10 +27,6 @@ const BranchMongoSchema = new Schema<Branch>(
 	}
 );
 
-// Create indexes for performance
-BranchMongoSchema.index({ brId: 1 });
-BranchMongoSchema.index({ num: 1 });
-
 // Export the model
 export const BranchModel = model<Branch>('Branch', BranchMongoSchema);
 export default BranchModel;
