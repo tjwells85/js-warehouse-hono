@@ -15,7 +15,8 @@
 		"hono": "catalog:",
 		"react": "^19.1.0",
 		"react-dom": "^19.1.0",
-		"better-auth": "catalog:"
+		"better-auth": "catalog:",
+		"superjson": "catalog:"
 	},
 	"devDependencies": {
 		"@rsbuild/core": "^1.3.22",
