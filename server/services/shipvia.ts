@@ -113,12 +113,13 @@ export const updateShipViaByName = async (name: string, data: Partial<ShipViaSch
 /**
  * Delete ship via by ID
  */
-export const deleteShipVia = async (id: string): Promise<void> => {
+export const deleteShipVia = async (id: string): Promise<ShipVia> => {
 	try {
 		const result = await ShipViaModel.findByIdAndDelete(id);
 		if (!result) {
 			throw new HTTPException(404, { message: 'Ship via not found' });
 		}
+		return result;
 	} catch (error: any) {
 		if (error instanceof HTTPException) throw error;
 		throw new HTTPException(500, { message: 'Failed to delete ship via' });
