@@ -30,6 +30,7 @@
         "@tanstack/router-plugin": "^1.120.11",
         "better-auth": "catalog:",
         "hono": "catalog:",
+        "ms": "catalog:",
         "react": "^19.1.0",
         "react-dom": "^19.1.0",
         "react-toastify": "^11.0.5",
@@ -55,7 +56,7 @@
         "better-auth": "catalog:",
         "hono": "catalog:",
         "mongoose": "^8.17.1",
-        "ms": "^2.1.3",
+        "ms": "catalog:",
         "node-cron": "^4.2.1",
         "superjson": "catalog:",
       },
@@ -64,6 +65,7 @@
   "catalog": {
     "better-auth": "^1.3.7",
     "hono": "^4.3.7",
+    "ms": "^2.1.3",
     "superjson": "^2.2.2",
   },
   "packages": {
