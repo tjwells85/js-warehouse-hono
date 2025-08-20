@@ -21,7 +21,7 @@ if (rootEl) {
 	root.render(
 		<React.StrictMode>
 			<RouterProvider router={router} />
-			<ToastContainer position="bottom-right" pauseOnFocusLoss={false} />
+			<ToastContainer autoClose={5000} position="bottom-right" pauseOnFocusLoss={false} pauseOnHover={false} />
 		</React.StrictMode>
 	);
 }
