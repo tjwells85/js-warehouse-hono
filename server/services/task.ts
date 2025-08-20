@@ -1,5 +1,4 @@
 import { TaskModel, ShipViaModel } from '@server/db/models';
-import { getBranchByBrId } from '@server/services/branch';
 import type { Task } from '@shared/types';
 
 export interface TaskFilters {
@@ -23,17 +22,8 @@ const flattenShipVias = (shipVias: Array<{ name: string }>): string[] => {
 /**
  * Get tasks for a branch with optional filtering
  */
-export const getTasksForBranch = async (
-	branchId: string,
-	type?: string
-): Promise<{
-	branch: any;
-	tasks: Task[];
-	typeTitle: string;
-}> => {
+export const getTasksForBranch = async (branchId: string, type?: string): Promise<Task[]> => {
 	// Verify branch exists
-	const branch = await getBranchByBrId(branchId);
-
 	let typeTitle = ' All Picks';
 	const filters: TaskFilters = {
 		branchId: branchId,
@@ -102,9 +92,5 @@ export const getTasksForBranch = async (
 		})
 		.lean();
 
-	return {
-		branch,
-		tasks,
-		typeTitle,
-	};
+	return tasks;
 };
