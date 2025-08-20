@@ -21,6 +21,7 @@ import { Route as AdminResetIndexRouteImport } from './routes/admin/reset/index'
 import { Route as AdminLogsIndexRouteImport } from './routes/admin/logs/index'
 import { Route as AdminHolidaysIndexRouteImport } from './routes/admin/holidays/index'
 import { Route as AdminBranchesIndexRouteImport } from './routes/admin/branches/index'
+import { Route as AdminUsersIdRouteImport } from './routes/admin/users/$id'
 import { Route as AdminStatsBranchRouteImport } from './routes/admin/stats/$branch'
 import { Route as AdminShipviasIdRouteImport } from './routes/admin/shipvias/$id'
 import { Route as AdminBranchesIdRouteImport } from './routes/admin/branches/$id'
@@ -85,6 +86,11 @@ const AdminBranchesIndexRoute = AdminBranchesIndexRouteImport.update({
   path: '/admin/branches/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminUsersIdRoute = AdminUsersIdRouteImport.update({
+  id: '/admin/users/$id',
+  path: '/admin/users/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminStatsBranchRoute = AdminStatsBranchRouteImport.update({
   id: '/admin/stats/$branch',
   path: '/admin/stats/$branch',
@@ -110,6 +116,7 @@ export interface FileRoutesByFullPath {
   '/admin/branches/$id': typeof AdminBranchesIdRoute
   '/admin/shipvias/$id': typeof AdminShipviasIdRoute
   '/admin/stats/$branch': typeof AdminStatsBranchRoute
+  '/admin/users/$id': typeof AdminUsersIdRoute
   '/admin/branches': typeof AdminBranchesIndexRoute
   '/admin/holidays': typeof AdminHolidaysIndexRoute
   '/admin/logs': typeof AdminLogsIndexRoute
@@ -127,6 +134,7 @@ export interface FileRoutesByTo {
   '/admin/branches/$id': typeof AdminBranchesIdRoute
   '/admin/shipvias/$id': typeof AdminShipviasIdRoute
   '/admin/stats/$branch': typeof AdminStatsBranchRoute
+  '/admin/users/$id': typeof AdminUsersIdRoute
   '/admin/branches': typeof AdminBranchesIndexRoute
   '/admin/holidays': typeof AdminHolidaysIndexRoute
   '/admin/logs': typeof AdminLogsIndexRoute
@@ -145,6 +153,7 @@ export interface FileRoutesById {
   '/admin/branches/$id': typeof AdminBranchesIdRoute
   '/admin/shipvias/$id': typeof AdminShipviasIdRoute
   '/admin/stats/$branch': typeof AdminStatsBranchRoute
+  '/admin/users/$id': typeof AdminUsersIdRoute
   '/admin/branches/': typeof AdminBranchesIndexRoute
   '/admin/holidays/': typeof AdminHolidaysIndexRoute
   '/admin/logs/': typeof AdminLogsIndexRoute
@@ -164,6 +173,7 @@ export interface FileRouteTypes {
     | '/admin/branches/$id'
     | '/admin/shipvias/$id'
     | '/admin/stats/$branch'
+    | '/admin/users/$id'
     | '/admin/branches'
     | '/admin/holidays'
     | '/admin/logs'
@@ -181,6 +191,7 @@ export interface FileRouteTypes {
     | '/admin/branches/$id'
     | '/admin/shipvias/$id'
     | '/admin/stats/$branch'
+    | '/admin/users/$id'
     | '/admin/branches'
     | '/admin/holidays'
     | '/admin/logs'
@@ -198,6 +209,7 @@ export interface FileRouteTypes {
     | '/admin/branches/$id'
     | '/admin/shipvias/$id'
     | '/admin/stats/$branch'
+    | '/admin/users/$id'
     | '/admin/branches/'
     | '/admin/holidays/'
     | '/admin/logs/'
@@ -216,6 +228,7 @@ export interface RootRouteChildren {
   AdminBranchesIdRoute: typeof AdminBranchesIdRoute
   AdminShipviasIdRoute: typeof AdminShipviasIdRoute
   AdminStatsBranchRoute: typeof AdminStatsBranchRoute
+  AdminUsersIdRoute: typeof AdminUsersIdRoute
   AdminBranchesIndexRoute: typeof AdminBranchesIndexRoute
   AdminHolidaysIndexRoute: typeof AdminHolidaysIndexRoute
   AdminLogsIndexRoute: typeof AdminLogsIndexRoute
@@ -311,6 +324,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminBranchesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/users/$id': {
+      id: '/admin/users/$id'
+      path: '/admin/users/$id'
+      fullPath: '/admin/users/$id'
+      preLoaderRoute: typeof AdminUsersIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/stats/$branch': {
       id: '/admin/stats/$branch'
       path: '/admin/stats/$branch'
@@ -344,6 +364,7 @@ const rootRouteChildren: RootRouteChildren = {
   AdminBranchesIdRoute: AdminBranchesIdRoute,
   AdminShipviasIdRoute: AdminShipviasIdRoute,
   AdminStatsBranchRoute: AdminStatsBranchRoute,
+  AdminUsersIdRoute: AdminUsersIdRoute,
   AdminBranchesIndexRoute: AdminBranchesIndexRoute,
   AdminHolidaysIndexRoute: AdminHolidaysIndexRoute,
   AdminLogsIndexRoute: AdminLogsIndexRoute,
