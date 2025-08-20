@@ -1,7 +1,7 @@
 import { auth, authDb } from '@server/lib/auth';
 import { ProcessEnv } from '@server/env';
 import { HTTPException } from 'hono/http-exception';
-import type { UserSchema } from '@shared/types';
+import type { UserSchema, User } from '@shared/types';
 
 /**
  * Check if default admin user exists, create if not
@@ -44,14 +44,14 @@ export const ensureDefaultAdmin = async (): Promise<void> => {
 /**
  * Get all users (admin only)
  */
-export const getAllUsers = async () => {
+export const getAllUsers = async (): Promise<User[]> => {
 	try {
 		const query = authDb.prepare(`
       SELECT id, email, name, role, emailVerified, banned, banReason, banExpires, createdAt, updatedAt 
       FROM user 
       ORDER BY createdAt DESC
     `);
-		return query.all();
+		return query.all() as User[];
 	} catch (error: any) {
 		throw new HTTPException(500, { message: 'Failed to fetch users' });
 	}
@@ -60,7 +60,7 @@ export const getAllUsers = async () => {
 /**
  * Get user by ID (admin only)
  */
-export const getUserById = async (id: string) => {
+export const getUserById = async (id: string): Promise<User> => {
 	try {
 		const query = authDb.prepare(`
       SELECT id, email, name, role, emailVerified, banned, banReason, banExpires, createdAt, updatedAt 
@@ -73,7 +73,7 @@ export const getUserById = async (id: string) => {
 			throw new HTTPException(404, { message: 'User not found' });
 		}
 
-		return user;
+		return user as User;
 	} catch (error: any) {
 		if (error instanceof HTTPException) throw error;
 		throw new HTTPException(500, { message: 'Failed to fetch user' });
@@ -83,7 +83,7 @@ export const getUserById = async (id: string) => {
 /**
  * Create user (admin only)
  */
-export const createUser = async (userData: UserSchema) => {
+export const createUser = async (userData: UserSchema): Promise<User> => {
 	try {
 		const result = await auth.api.createUser({
 			body: {
@@ -98,7 +98,7 @@ export const createUser = async (userData: UserSchema) => {
 			throw new HTTPException(400, { message: 'Failed to create user' });
 		}
 
-		return result;
+		return result.user as User;
 	} catch (error: any) {
 		if (error instanceof HTTPException) throw error;
 		if (error.message?.includes('UNIQUE constraint failed')) {
@@ -111,7 +111,7 @@ export const createUser = async (userData: UserSchema) => {
 /**
  * Update user (admin only)
  */
-export const updateUser = async (id: string, userData: Partial<UserSchema>) => {
+export const updateUser = async (id: string, userData: Partial<UserSchema>): Promise<User> => {
 	try {
 		// Build update query dynamically
 		const fields = [];
