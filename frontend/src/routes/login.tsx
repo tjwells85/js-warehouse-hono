@@ -1,9 +1,14 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute } from '@tanstack/react-router';
+import LoginForm from '@frontend/components/forms/LoginForm';
 
 export const Route = createFileRoute('/login')({
-  component: RouteComponent,
-})
+	component: RouteComponent,
+});
 
 function RouteComponent() {
-  return <div>Hello "/login"!</div>
+	return (
+		<main className="flex justify-center flex-col">
+			<LoginForm />
+		</main>
+	);
 }
