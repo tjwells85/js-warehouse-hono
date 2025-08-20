@@ -10,6 +10,7 @@
 		"preview": "rsbuild preview"
 	},
 	"dependencies": {
+		"@iconify/react": "^6.0.0",
 		"@tanstack/react-router": "^1.120.11",
 		"@tanstack/router-plugin": "^1.120.11",
 		"better-auth": "catalog:",
