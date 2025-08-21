@@ -70,7 +70,7 @@ export const init = async (): Promise<void> => {
 		// Initialize in order of dependency
 		await initDatabase();
 		await initAuth();
-		// await initCronJobs();
+		await initCronJobs();
 
 		if (ProcessEnv.DEV_MODE) {
 			console.log('✅ Server initialization complete!');
