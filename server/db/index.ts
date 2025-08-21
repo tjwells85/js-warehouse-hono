@@ -24,7 +24,7 @@ export const connectToDatabase = async (): Promise<void> => {
 	try {
 		if (ProcessEnv.DEV_MODE) {
 			console.log('🔌 Connecting to MongoDB...');
-			mongoose.set('debug', true); // Enable query logging in dev
+			// mongoose.set('debug', true); // Enable query logging in dev
 		}
 
 		const connection = await mongoose.connect(ProcessEnv.DATABASE_URL, connectionOptions);
