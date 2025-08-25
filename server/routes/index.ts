@@ -3,8 +3,9 @@ import { useSession } from '@server/lib/middleware';
 
 import authRoutes from './auth';
 import branchRoutes from './branch';
-import taskRoutes from './task';
+import holidayRoutes from './holiday';
 import shipViaRoutes from './shipvia';
+import taskRoutes from './task';
 import userRoutes from './user';
 
 const apiRoutes = new Hono()
@@ -12,8 +13,9 @@ const apiRoutes = new Hono()
 	.use(useSession)
 	.route('/auth', authRoutes)
 	.route('/branches', branchRoutes)
-	.route('/tasks', taskRoutes)
+	.route('/holidays', holidayRoutes)
 	.route('/shipvias', shipViaRoutes)
+	.route('/tasks', taskRoutes)
 	.route('/users', userRoutes);
 
 export default apiRoutes;

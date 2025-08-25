@@ -16,8 +16,8 @@ export interface Holiday extends BaseDocument {
  */
 export const HolidaySchema = z.object({
 	name: z.string().nonempty('Holiday name is required').trim(),
-	start: z.date(),
-	end: z.date(),
+	start: z.coerce.date(),
+	end: z.coerce.date(),
 });
 
 export type HolidaySchema = z.infer<typeof HolidaySchema>;

@@ -24,6 +24,7 @@ import { Route as AdminBranchesIndexRouteImport } from './routes/admin/branches/
 import { Route as AdminUsersIdRouteImport } from './routes/admin/users/$id'
 import { Route as AdminStatsBranchRouteImport } from './routes/admin/stats/$branch'
 import { Route as AdminShipviasIdRouteImport } from './routes/admin/shipvias/$id'
+import { Route as AdminHolidaysIdRouteImport } from './routes/admin/holidays/$id'
 import { Route as AdminBranchesIdRouteImport } from './routes/admin/branches/$id'
 
 const LoginRoute = LoginRouteImport.update({
@@ -101,6 +102,11 @@ const AdminShipviasIdRoute = AdminShipviasIdRouteImport.update({
   path: '/admin/shipvias/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminHolidaysIdRoute = AdminHolidaysIdRouteImport.update({
+  id: '/admin/holidays/$id',
+  path: '/admin/holidays/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminBranchesIdRoute = AdminBranchesIdRouteImport.update({
   id: '/admin/branches/$id',
   path: '/admin/branches/$id',
@@ -114,6 +120,7 @@ export interface FileRoutesByFullPath {
   '/admin': typeof AdminIndexRoute
   '/whs': typeof WhsIndexRoute
   '/admin/branches/$id': typeof AdminBranchesIdRoute
+  '/admin/holidays/$id': typeof AdminHolidaysIdRoute
   '/admin/shipvias/$id': typeof AdminShipviasIdRoute
   '/admin/stats/$branch': typeof AdminStatsBranchRoute
   '/admin/users/$id': typeof AdminUsersIdRoute
@@ -132,6 +139,7 @@ export interface FileRoutesByTo {
   '/admin': typeof AdminIndexRoute
   '/whs': typeof WhsIndexRoute
   '/admin/branches/$id': typeof AdminBranchesIdRoute
+  '/admin/holidays/$id': typeof AdminHolidaysIdRoute
   '/admin/shipvias/$id': typeof AdminShipviasIdRoute
   '/admin/stats/$branch': typeof AdminStatsBranchRoute
   '/admin/users/$id': typeof AdminUsersIdRoute
@@ -151,6 +159,7 @@ export interface FileRoutesById {
   '/admin/': typeof AdminIndexRoute
   '/whs/': typeof WhsIndexRoute
   '/admin/branches/$id': typeof AdminBranchesIdRoute
+  '/admin/holidays/$id': typeof AdminHolidaysIdRoute
   '/admin/shipvias/$id': typeof AdminShipviasIdRoute
   '/admin/stats/$branch': typeof AdminStatsBranchRoute
   '/admin/users/$id': typeof AdminUsersIdRoute
@@ -171,6 +180,7 @@ export interface FileRouteTypes {
     | '/admin'
     | '/whs'
     | '/admin/branches/$id'
+    | '/admin/holidays/$id'
     | '/admin/shipvias/$id'
     | '/admin/stats/$branch'
     | '/admin/users/$id'
@@ -189,6 +199,7 @@ export interface FileRouteTypes {
     | '/admin'
     | '/whs'
     | '/admin/branches/$id'
+    | '/admin/holidays/$id'
     | '/admin/shipvias/$id'
     | '/admin/stats/$branch'
     | '/admin/users/$id'
@@ -207,6 +218,7 @@ export interface FileRouteTypes {
     | '/admin/'
     | '/whs/'
     | '/admin/branches/$id'
+    | '/admin/holidays/$id'
     | '/admin/shipvias/$id'
     | '/admin/stats/$branch'
     | '/admin/users/$id'
@@ -226,6 +238,7 @@ export interface RootRouteChildren {
   AdminIndexRoute: typeof AdminIndexRoute
   WhsIndexRoute: typeof WhsIndexRoute
   AdminBranchesIdRoute: typeof AdminBranchesIdRoute
+  AdminHolidaysIdRoute: typeof AdminHolidaysIdRoute
   AdminShipviasIdRoute: typeof AdminShipviasIdRoute
   AdminStatsBranchRoute: typeof AdminStatsBranchRoute
   AdminUsersIdRoute: typeof AdminUsersIdRoute
@@ -345,6 +358,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminShipviasIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/holidays/$id': {
+      id: '/admin/holidays/$id'
+      path: '/admin/holidays/$id'
+      fullPath: '/admin/holidays/$id'
+      preLoaderRoute: typeof AdminHolidaysIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/branches/$id': {
       id: '/admin/branches/$id'
       path: '/admin/branches/$id'
@@ -362,6 +382,7 @@ const rootRouteChildren: RootRouteChildren = {
   AdminIndexRoute: AdminIndexRoute,
   WhsIndexRoute: WhsIndexRoute,
   AdminBranchesIdRoute: AdminBranchesIdRoute,
+  AdminHolidaysIdRoute: AdminHolidaysIdRoute,
   AdminShipviasIdRoute: AdminShipviasIdRoute,
   AdminStatsBranchRoute: AdminStatsBranchRoute,
   AdminUsersIdRoute: AdminUsersIdRoute,

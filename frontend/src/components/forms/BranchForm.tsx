@@ -10,7 +10,7 @@ interface Props {
 	onSuccess?: (result: Branch) => void;
 }
 
-const BranchForm: React.FC<Props> = ({ branch, onSuccess }) => {
+const BranchForm = ({ branch, onSuccess }: Props) => {
 	const router = useRouter();
 	const [formData, setFormData] = useState<BranchSchema>({
 		brId: branch?.brId || '',
