@@ -2,6 +2,7 @@ import { createFileRoute, Link } from '@tanstack/react-router';
 import { getAllBranches } from '@frontend/lib/api/branch';
 import Title from '@frontend/components/Title';
 import { isFailure } from '@frontend/lib/types';
+import BranchForm from '@frontend/components/forms/BranchForm';
 
 export const Route = createFileRoute('/admin/branches/')({
 	component: RouteComponent,
@@ -20,6 +21,7 @@ function RouteComponent() {
 	return (
 		<main>
 			<Title>Branches</Title>
+			<BranchForm />
 			<table className="table table-zebra mx-auto w-[15%] rounded-lg bg-base-300 shadow-xl">
 				<thead>
 					<tr>
